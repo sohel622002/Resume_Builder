@@ -1,0 +1,34 @@
+:root {
+    --color-60: #4C4C6D;
+    --color-30: #1B9C85;
+    --color-10: white;
+    --colorShade-60: #818198;
+}
+
+.header {
+    max-width: 95vw;
+    margin-inline: auto;
+    padding: 2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+}
+
+.header h2 {
+    font-weight: 300;
+    color: var(--color-10);
+    cursor: pointer;
+}
+
+.download_btn {
+    font-size: 1.2rem;
+    padding: .5em 1.2em;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: var(--color-10);
+    background-color: var(--color-30);
+    cursor: pointer;
+}

@@ -1,0 +1,164 @@
+.Resume{
+    width: 980px;
+    height: 1387px;
+    background-color: white;
+    margin-bottom: 4em;
+}
+
+.Resume_Header{
+    background-color: #455aa3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5em 3em;
+}
+
+.Personal_Detail{
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+.Resume_Header h1{
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: #fff;
+    font-weight: 400;
+}
+
+.Resume_Header h3{
+    font-size: 1.5rem;
+    color: #1B9C85;
+    font-weight: 300;
+}
+
+.Resume_Header h4{
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.Image{
+    background-color: #fff;
+    width: 170px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #455aa3, 0 0 0 6px white;
+}
+
+.Personal_Links{
+    width: 100%;
+    padding: 18px 3em;
+    background-color: #374882;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 18px;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.Individual_links{
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+.Individual_links i{
+    font-size: 23px;
+    color: #fff;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.Individual_links a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.main_section{
+    width: 100%;
+    min-height: 1008px;
+    /* background-color: aqua; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+}
+
+.main_title{
+    font-size: 1.7rem;
+    color: #1B9C85;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.main_title::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #1B9C85;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.education_Container{
+    height: max-content;
+}
+
+.education{
+    /* background-color: aqua; */
+    margin-top: 15px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.education .studyProgram{
+    font-size: 1.5rem;
+    color: #141414;
+    outline: none;
+    border: none;
+}
+
+.education .placeOfEducation{
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.education .education_dates{
+    color: #1B9C85;
+    width: 180px;
+}
+
+.education .date_span{
+    margin-inline: 2px;
+}
+
+.education .programDate{
+    display: inline-block;
+    outline: none;
+    border: none;
+    width: 40px;
+    font-size: 1rem;
+    color: #1B9C85;
+}
+
+.education .programDate.day{
+    width: 20px;
+}
+
+.education > div{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.education .cityOfProgram > input{
+    border: none;
+    font-size: 1rem;
+    text-align: right;
+}
