@@ -10,8 +10,8 @@ const Resume = ({ resume, linksUpdaterHandler }) => {
             <div className='Resume_Header'>
                 <div className='Personal_Detail'>
                     <h1>{resume.resumerName}</h1>
-                    <h3>Frontend Developer</h3>
-                    <h4>Selftaught Developer</h4>
+                    <h3>{resume.rollForApply}</h3>
+                    <h4>{resume.tageLine}</h4>
                 </div>
                 <div className='Image'>
 
@@ -22,7 +22,7 @@ const Resume = ({ resume, linksUpdaterHandler }) => {
 
             <div className='Personal_Links' onClick={linksUpdaterHandler}>
                 {Object.entries(resume.contactDetail).map(([key, value]) => (
-                    value && (key === 'github' | key === 'linkedin' | key === 'instagram' | key === 'facebook' ?
+                    value && !(key === 'address' | key === 'country') && (key === 'github' | key === 'linkedin' | key === 'instagram' | key === 'facebook' ?
                         <IndividualLinks info="brands" type={key} link={value.replace('https://www.', '')} key={key} /> :
                         <IndividualLinks info="solid" type={key} link={value} key={key} />)
                 ))}

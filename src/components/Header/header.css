@@ -22,6 +22,21 @@
     cursor: pointer;
 }
 
+.headerFunc{
+    background-color: #5d5d78;
+    display: flex;
+    border-radius: 20px;
+    width: 180px;
+}
+
+.headerFunc > div{
+    flex: 1;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+}
+
 .download_btn {
     font-size: 1.2rem;
     padding: .5em 1.2em;

@@ -1,12 +1,14 @@
 import './App.css';
 import Header from './components/Header/header';
+import LinkModel from './components/Model For Links/LinkModel';
 import Resume from './components/Resume/Resume';
-import Sidebar from './components/Sidebar/Sidebar';
 
 import { useState } from 'react'
 
 function App() {
   const [open, setOpan] = useState(false)
+  const [openModel, setOpenModel] = useState(false)
+  const [addModel, setAddModel] = useState(false)
 
   const [resumeDate, setResumeData] = useState({
     resumerName: "sohel Shaikh",
@@ -14,13 +16,15 @@ function App() {
     tageLine: "Self Taught Devloper",
     profileImageUrl: '',
     contactDetail: {
-      "envelope" : "sohelshaikh01231@gmail.com",
-      "mobile-screen-button" : 8488821801,
-      "location-dot" : "Ahmedabad",
-      "linkedin" : 'https://www.linkedin.com/in/sohel-shaikh-0a520b191',
-      "github" : 'https://www.github.com/sohel622002',
-      "instagram" : '',
-      "facebook" : '',
+      "envelope": "sohelshaikh01231@gmail.com",
+      "mobile-screen-button": 8488821801,
+      "location-dot": "Ahmedabad",
+      "linkedin": 'https://www.linkedin.com/in/sohel-shaikh-0a520b191',
+      "github": 'https://www.github.com/sohel622002',
+      "instagram": '',
+      "facebook": '',
+      "country" : '',
+      "address" : ''
     },
     Education: [
       {
@@ -70,28 +74,68 @@ function App() {
     ]
   })
 
-  const openFunctionality = () => {
-    setOpan(!open)
+  const linksUpdaterHandler = () => {
+    setOpenModel(true)
+  }
 
-    if (!open) {
-      const plusIcon = document.querySelector('.fa-plus')
-      plusIcon.style.transform = "rotate(45deg)"
-    } else {
-      const plusIcon = document.querySelector('.fa-plus')
-      plusIcon.style.transform = "rotate(0deg)"
+  const openModelCloserHandler = (e) => {
+    const backDrop = document.querySelector('.backDrop')
+    if (e.target === backDrop) {
+      setOpenModel(false)
+      setAddModel(false)
     }
   }
 
-  const linksUpdaterHandler = () => {
-    console.log('Open Links')
+  const showSocialLinks = () => {
+    const element = document.querySelector('.sociallink_container')
+    element.style.setProperty('--before-left', `50%`)
   }
 
-  
+  const showMainLinks = () => {
+    const element = document.querySelector('.sociallink_container')
+    element.style.setProperty('--before-left', `0%`)
+  }
+
+  const opneEditModel = () => {
+    setAddModel(true)
+  }
+
+  const reciveMainLinks = (mainLinksState) => {
+    const linkState = mainLinksState
+    const resumeDataCopy = {...resumeDate}
+    resumeDataCopy.contactDetail.envelope = mainLinksState.email
+    resumeDataCopy.contactDetail['location-dot'] = mainLinksState.city
+    resumeDataCopy.contactDetail['mobile-screen-button'] = mainLinksState.phone
+    resumeDataCopy.contactDetail.country = mainLinksState.country
+    resumeDataCopy.contactDetail.address = mainLinksState.address
+    resumeDataCopy.resumerName = mainLinksState.name
+    resumeDataCopy.rollForApply = mainLinksState.role
+    resumeDataCopy.tageLine = mainLinksState.line
+    setResumeData(resumeDataCopy)
+    setOpenModel(false)
+  }
+
   return (
     <div className="App">
-      <Header />
+      {openModel &&
+        <LinkModel
+          openModelCloserHandler={(e) => openModelCloserHandler(e)}
+          onDiscardClick={() => setOpenModel(!openModel)}
+          showSocialLinks={showSocialLinks}
+          showMainLinks={showMainLinks} 
+          reciveMainLinks={reciveMainLinks}
+          resume={resumeDate}/>
+      }
+      {addModel && <div className='backDrop' onClick={(e) => openModelCloserHandler(e)}>
+        <div className='model'>
+          <div className='component_container'>
+
+          </div>
+        </div>
+      </div>
+      }
+      <Header opneEditModel={opneEditModel} />
       <div className='main'>
-        <Sidebar openFunctionality={openFunctionality} />
         <Resume resume={resumeDate} linksUpdaterHandler={linksUpdaterHandler} />
       </div>
     </div>

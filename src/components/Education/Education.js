@@ -1,26 +1,19 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function Education() {
+
+    const educationRef = useRef();
 
     const [educationDetail, setEducationDetail] = useState(
         [
             {
-                degreeName: 'BSC Physics',
-                collageName: 'Bhavans R A Collage Of Science',
+                degreeName: '',
+                collageName: '',
                 startingMonth: '',
-                startingYear: '2018',
-                endingMonth: '04',
-                endingYear: '2022',
-                at: "Anand"
-            },
-            {
-                degreeName: '12th',
-                collageName: 'D N High School',
-                startingMonth: '04',
-                startingYear: '2018',
-                endingMonth: '04',
-                endingYear: '2022',
-                at: "Anand"
+                startingYear: '',
+                endingMonth: '',
+                endingYear: '',
+                at: ""
             }
         ])
 
@@ -29,32 +22,73 @@ function Education() {
         const targetName = name[name.length - 1]
         const educationDetailDup = [...educationDetail]
         let changevalue = e.target.value
-        educationDetailDup[index].targetName = changevalue
-        setEducationDetail([...educationDetailDup])
-        console.log(targetName)
-    }
-
-    const onYearChangeHandler = (e, index) => {
-        const input = document.querySelectorAll('.startingYear')
-        const educationDetailDup = [...educationDetail]
-        let changedvalue = e.target.value
-        educationDetailDup[index].startingYear = changedvalue
+        educationDetailDup[index][targetName] = changevalue
         setEducationDetail([...educationDetailDup])
     }
 
     const editEducationHandler = (index) => {
-        console.log(educationDetail[index].startingMonth)
+        const educationDivs = document.querySelectorAll('.education')
+        Array.from(educationDivs).map(educationDiv => educationDiv.classList.remove('openEditMode'))
+        const selectedEducation = document.querySelectorAll('.education')[index]
+        selectedEducation.classList.add('openEditMode')
     }
 
-    console.log(educationDetail)
+    const onContentEditing = (e, index) => {
+        const name = e.target.className.split(' ')
+        const targetName = name[name.length - 1]
+        const educationDetailDup = [...educationDetail]
+        const progDetail = e.target.value
+        educationDetailDup[index][targetName] = progDetail
+        setEducationDetail([...educationDetailDup])
+
+        if (targetName === 'degreeName' | targetName === 'placeOfEducation') {
+            const studyProgramDiv = document.querySelector(`.${targetName}`)
+            studyProgramDiv.style.setProperty('--before-content', "''")
+        }
+    }
+
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            if (educationRef.current && !educationRef.current.contains(event.target)) {
+                const educationDivs = document.querySelectorAll('.education')
+                Array.from(educationDivs).map(educationDiv => educationDiv.classList.remove('openEditMode'))
+            }
+        };
+        document.addEventListener('click', handleOutsideClick);
+
+        return () => {
+            document.removeEventListener('click', handleOutsideClick);
+        };
+    }, []);
+
+    // educationDetail.map((edu, index) => {
+    //     if(edu.degreeName){
+    //         const studyProgramDiv = document.querySelectorAll('.studyProgram')[index]
+    //         studyProgramDiv.style.setProperty('--before-content', '')
+    //         console.log(edu)
+    //     }
+    // })
 
     return (
-        <div className='education_Container'>
+        <div className='education_Container' ref={educationRef}>
             <h2 className='main_title'>EDUCATION</h2>
             {educationDetail.map((singleEducation, index) => (
-                <div className='education' onClick={() => editEducationHandler(index)}>
-                    <h3 className='studyProgram'>{singleEducation.degreeName}</h3>
-                    <p className='placeOfEducation'>{singleEducation.collageName}</p>
+                <div className='education' key={index} onClick={() => editEducationHandler(index)}>
+                    <h3
+                        className='studyProgram degreeName'
+                        contentEditable='true'
+                        suppressContentEditableWarning='true'
+                        onInput={(e) => onContentEditing(e, index)}
+                    >
+                        {singleEducation.degreeName ? singleEducation.degreeName : ''}
+                    </h3>
+                    <p
+                        className='placeOfEducation'
+                        contentEditable='true'
+                        suppressContentEditableWarning='true'
+                        onInput={(e) => onContentEditing(e, index)}>
+                        {singleEducation.collageName ? singleEducation.collageName : ""}
+                    </p>
                     <div>
                         <div className='education_dates'>
                             <input
@@ -92,7 +126,12 @@ function Education() {
                                 onChange={(e) => onChangeHandler(e, index)} />
                         </div>
                         <div className='cityOfProgram'>
-                            <input placeholder='City,Country or GPA(Optional)' value={singleEducation.at} />
+                            <input
+                                placeholder='City Or Country'
+                                className="at"
+                                value={singleEducation.at}
+                                contentEditable='false'
+                                onChange={(e) => onChangeHandler(e, index)} />
                         </div>
                     </div>
                 </div>

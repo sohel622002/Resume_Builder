@@ -1,19 +1,95 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.App{
+.App {
   background-color: #4C4C6D;
   width: 100%;
   min-height: 100vh;
   position: absolute;
 }
 
-.main{
+.main {
   display: flex;
-  gap: 2em;
+  justify-content: center;
+}
+
+.backDrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  display: grid;
+  place-items: center;
+}
+
+.model {
+  position: absolute;
+  width: 900px;
+  background-color: #425061;
+  border-radius: 15px;
+  z-index: 10;
+  padding: 25px 0;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 35px;
+}
+
+.navigation>button {
+  font-size: 1.1rem;
+  padding: 9px 15px;
+  border-radius: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+.discard {
+  background-color: #F27575;
+}
+
+.save {
+  background-color: #1B9C85;
+}
+
+.sociallink_container{
+  width: min-content;
+  margin-inline: auto;
+  background-color: #313b47;
+  display: flex;
+  border-radius: 25px;
   position: relative;
+}
+
+.sociallink_container::after{
+  content: '';
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  background-color: #1B9C85;
+  z-index: 1;
+  border-radius: 25px;
+  left: var(--before-left, 0);
+  transition: all .3s ease-in;
+}
+
+.socialLinks{
+  width: 200px;
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  background-color: transparent ;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
 }

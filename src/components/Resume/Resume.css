@@ -3,6 +3,7 @@
     height: 1387px;
     background-color: white;
     margin-bottom: 4em;
+    text-decoration: none;
 }
 
 .Resume_Header{
@@ -107,10 +108,10 @@
 
 .education_Container{
     height: max-content;
+    max-width: 400px;
 }
 
 .education{
-    /* background-color: aqua; */
     margin-top: 15px;
     cursor: pointer;
     margin-bottom: 25px;
@@ -121,17 +122,65 @@
     color: #141414;
     outline: none;
     border: none;
+    /* background-color: aqua; */
+    height: min-content;
+    position: relative;
+}
+
+.studyProgram::before{
+    content: var(--before-content, 'Study Program');
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.education.openEditMode .studyProgram{
+    outline: none;
+    padding: 2px 0;
+    border-bottom: 2px solid #1B9C85;
+}
+
+.education.openEditMode .studyProgram::before{
+    opacity: .2;
 }
 
 .education .placeOfEducation{
     font-size: 1.5rem;
     font-weight: 300;
     margin-top: 5px;
+    position: relative;
 }
+
+.education .placeOfEducation::before{
+    content: var(--before-content, 'Place Of Education');
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.education.openEditMode .placeOfEducation{
+    outline: none;
+    padding: 2px 0;
+    border-bottom: 2px solid #1B9C85;
+}
+
+/* .education.openEditMode .placeOfEducation::before{
+    content: '';
+    opacity: 0;
+} */
 
 .education .education_dates{
     color: #1B9C85;
     width: 180px;
+}
+
+.education.openEditMode .education_dates{
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 2px dotted #1B9C85;
 }
 
 .education .date_span{
@@ -148,7 +197,8 @@
 }
 
 .education .programDate.day{
-    width: 20px;
+    width: 28px;
+    text-align: center;
 }
 
 .education > div{
@@ -157,8 +207,26 @@
     margin-top: 5px;
 }
 
+.education.openEditMode > div{
+    display: inline-block;
+    width: 100%;
+}
+
+.education.openEditMode .cityOfProgram{
+    border-bottom: 1px solid #1B9C85;
+}
+
+.education.openEditMode .cityOfProgram > input{
+    text-align: left;
+    outline: none;
+    border: none;
+    padding: 5px 0;
+}
+
 .education .cityOfProgram > input{
     border: none;
     font-size: 1rem;
     text-align: right;
+    outline: none;
+    border: none;
 }

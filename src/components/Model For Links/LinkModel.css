@@ -1,0 +1,54 @@
+.main_Link_Container{
+    /* background-color: #fff; */
+    width: 100%;
+    padding: 25px 82px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 20px;
+    row-gap: 50px;
+    column-gap: 50px;
+}
+
+.main_contect_inputs{
+    width: 100%;
+    height: 35px;
+    /* background-color: aqua; */
+    display: flex;
+    font-size: 1rem;
+    color: #fff;
+    align-items: center;
+}
+
+.main_contect_inputs > div{
+    display: flex;
+    flex-direction: column;
+    background-color: #313b47;
+    padding: 10px 22px;
+    border-radius: 20px;
+    flex: 1;
+}
+
+.main_contect_inputs > i{
+    font-size: 1.8rem;
+    margin-right: 25px;
+}
+
+.main_contect_inputs input{
+    background-color: #313b47 !important;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-top: 5px;
+}
+
+.personal_Detail{
+    width: 100%;
+    margin-inline: auto;
+    margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px 82px;
+    column-gap: 50px;
+    row-gap: 50px;
+}
