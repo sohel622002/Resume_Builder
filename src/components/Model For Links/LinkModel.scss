@@ -1,0 +1,54 @@
+@import "../../scss/variables.scss";
+
+.main_Link_Container {
+  width: 100%;
+  padding: 25px 82px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+  row-gap: 50px;
+  column-gap: 50px;
+}
+
+.main_contect_inputs {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  font-size: 1rem;
+  color: $color-primary;
+  align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    background-color: $app-background-dark;
+    padding: 10px 22px;
+    border-radius: 20px;
+    flex: 1;
+  }
+
+  i {
+    font-size: 1.8rem;
+    margin-right: 25px;
+  }
+  
+  input {
+    background-color: $app-background-dark !important;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    color: $color-primary;
+    margin-top: 5px;
+  }
+}
+
+.personal_Detail {
+  width: 100%;
+  margin-inline: auto;
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 20px 82px;
+  column-gap: 50px;
+  row-gap: 50px;
+}

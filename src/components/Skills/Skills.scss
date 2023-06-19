@@ -1,0 +1,35 @@
+@import "../../scss/variables.scss";
+
+.skill_section {
+  width: 100%;
+  height: max-content;
+
+  .skills {
+    padding: 7px 0;
+    display: flex;
+    gap: 10px;
+    text-transform: uppercase;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .skill {
+    position: relative;
+    padding: 5px 10px;
+    color: $color-primary;
+    background-color: $resume-bg-primary;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    height: 28.4px;
+
+    &:empty::before {
+      content: "skill";
+      display: block;
+      top: 0;
+      left: 0;
+      position: relative;
+      opacity: 0.5;
+    }
+  }
+}

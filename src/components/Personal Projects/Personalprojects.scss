@@ -1,0 +1,168 @@
+@import "../../scss/variables.scss";
+
+.personal-projects-container {
+  width: 100%;
+  height: max-content;
+}
+
+.personal_project {
+  margin-top: 15px;
+  position: relative;
+
+  ul {
+    list-style: none;
+    padding: 10px 0;
+
+    .trashcan {
+      display: none;
+    }
+
+    .project_Detail {
+      font-size: 1.2rem;
+      outline: none;
+      border: none;
+      margin-bottom: 5px;
+      font-size: 1.1rem;
+      position: relative;
+      width: 100%;
+
+      &:empty::before {
+        content: "Project Detail";
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin-bottom: 5px;
+      }
+    }
+
+    div {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .list_dot {
+      display: block;
+      pointer-events: none;
+      width: 8px;
+      height: 8px;
+      background-color: $app-color-10;
+      border-radius: 50%;
+    }
+  }
+
+  .add_project_detail {
+    display: none;
+  }
+}
+
+.project_title {
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 4px 0;
+}
+
+.project_title:empty::before {
+  content: "Project Title";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 4px 0;
+}
+
+.openedit_personal_project {
+  .project_title {
+    padding: 8px 0;
+    border-bottom: 2px dotted $app-color-10;
+  }
+
+  .project_title:empty::before {
+    content: "Project Title";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 8px 0;
+    opacity: 0.5;
+  }
+
+  ul {
+    .trashcan {
+      display: block;
+    }
+
+    .project_Detail {
+      border-bottom: 2px dotted $app-color-10;
+      padding: 5px 0;
+      display: block;
+      width: 100%;
+      position: relative;
+
+      &:empty::before {
+        content: "Project Detail";
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        padding: 5px 0;
+      }
+    }
+  }
+
+  .add_project_detail {
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+
+    span:nth-child(1) {
+      display: inline-block;
+
+      i {
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+    }
+
+    span:nth-child(2) {
+      display: block;
+      height: 3px;
+      width: 100%;
+      border-top: 3px dashed $app-color-10;
+    }
+  }
+}
+
+.project_side_function {
+  display: none;
+  position: absolute;
+  left: -52px;
+  padding: 20px 10px;
+  border-radius: 15px;
+  background-color: $side-function-bg;
+  flex-direction: column;
+  gap: 25px;
+
+  i {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+.error {
+  display: none;
+  position: absolute;
+  background-color: $app-color-10;
+  bottom: -50%;
+  left: -80px;
+  width: 120px;
+  padding: 5px;
+  border-radius: 5px;
+  color: $color-primary;
+}

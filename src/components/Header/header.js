@@ -1,4 +1,4 @@
-import './header.css'
+import './header.scss'
 
 function Header(props) {
   return (
@@ -7,8 +7,9 @@ function Header(props) {
       <div className='headerFunc'>
         <div className='font'>Font</div>
         <div className='addBtn' onClick={props.opneEditModel}>Add</div>
+        <div className='linkBtn' onClick={props.openAddLinkModel}>Link</div>
       </div>
-      <button className='download_btn'>Download</button>
+      <button className='download_btn' onClick={props.printResume}>Download</button>
     </div>
   )
 }

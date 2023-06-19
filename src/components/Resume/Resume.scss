@@ -1,0 +1,271 @@
+@import "../../scss/variables.scss";
+
+.Resume {
+  width: 980px;
+  height: 1387px;
+  background-color: $color-primary;
+  margin-bottom: 4em;
+  text-decoration: none;
+}
+
+.Resume_Header {
+  background-color: $resume-bg-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5em 3em;
+
+  h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: $color-primary;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: $app-color-10;
+    font-weight: 300;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: $color-primary;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+}
+
+.Personal_Detail {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.Image {
+  background-color: $color-primary;
+  width: 170px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px $resume-bg-primary, 0 0 0 6px white;
+}
+
+.Personal_Links {
+  width: 100%;
+  padding: 18px 3em;
+  background-color: $resume-bg-dark;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 18px;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.Individual_links {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+
+  i {
+    font-size: 23px;
+    color: $color-primary;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-primary;
+  }
+}
+
+.main_section {
+  width: 100%;
+  min-height: 1008px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
+  grid-template-rows: max-content;
+  gap: 25px;
+}
+
+.main_title {
+  font-size: 1.7rem;
+  color: $app-color-10;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 10px;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: $app-color-10;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+  }
+}
+
+.education_Container {
+  height: max-content;
+  width: 100%;
+}
+
+.education {
+  cursor: pointer;
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 7px 0;
+
+  .studyProgram {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #141414;
+    outline: none;
+    border: none;
+    position: relative;
+  }
+
+  .studyProgram:empty::before {
+    content: 'Study Program';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .placeOfEducation {
+    font-size: 1.5rem;
+    font-weight: 300;
+    position: relative;
+    outline: none;
+    border: none;
+  }
+
+  .placeOfEducation:empty::before {
+    content: 'Place Of Education';
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .education_dates {
+    color: $app-color-10;
+    width: 180px;
+  }
+
+  .date_span {
+    margin-inline: 2px;
+  }
+
+  .programDate {
+    display: inline-block;
+    outline: none;
+    border: none;
+    width: 40px;
+    font-size: 1rem;
+    color: $app-color-10;
+  }
+
+  .programDate.day {
+    width: 28px;
+    text-align: center;
+  }
+
+  .dates {
+    display: flex;
+    align-items: center;
+  }
+
+  .cityOfProgram > input {
+    border: none;
+    font-size: 1rem;
+    text-align: right;
+    outline: none;
+    border: none;
+  }
+}
+
+.education.openEditMode {
+  .studyProgram {
+    outline: none;
+    padding: 6px 0;
+    border-bottom: 2px solid $app-color-10;
+
+    &:empty::before {
+      content: 'Study Program';
+      position: absolute;
+      padding: 6px 0;
+      opacity: .5;
+    }
+  }
+
+  .placeOfEducation {
+    outline: none;
+    padding: 2px 0;
+    border-bottom: 2px solid $app-color-10;
+
+    &:empty::before {
+      content: 'Place Of Education';
+      position: absolute;
+      padding: 2px 0;
+      opacity: .5;
+    }
+  }
+
+  .education_dates {
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 2px dotted $app-color-10;
+  }
+
+  .dates {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .cityOfProgram {
+    border-bottom: 1px solid $app-color-10;
+  }
+
+  .cityOfProgram > input {
+    text-align: left;
+    outline: none;
+    border: none;
+    padding: 5px 0;
+  }
+}
+
+.side_function {
+  display: none;
+  position: absolute;
+  left: -52px;
+  padding: 20px 10px;
+  border-radius: 15px;
+  background-color: $side-function-bg;
+  flex-direction: column;
+  gap: 25px;
+  
+  i {
+    font-size: 1.5rem;
+  }
+}
+
+.error {
+  display: none;
+  position: absolute;
+  background-color: $app-color-10;
+  bottom: -50%;
+  left: -80px;
+  width: 120px;
+  padding: 5px;
+  border-radius: 5px;
+  color: $color-primary;
+}

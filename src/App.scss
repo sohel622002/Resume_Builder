@@ -1,0 +1,131 @@
+@import '../src/scss/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.App {
+  background-color: $app-background-color;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.backDrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  backdrop-filter: blur(5px);
+  display: grid;
+  place-items: center;
+}
+
+.model {
+  position: absolute;
+  width: 900px;
+  background-color: #425061;
+  border-radius: 15px;
+  z-index: 10;
+  padding: 25px 0;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 35px;
+
+  & button {
+    font-size: 1.1rem;
+    padding: 9px 15px;
+    border-radius: 18px;
+    border: none;
+    outline: none;
+    color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+
+.discard {
+  background-color: #F27575;
+}
+
+.save {
+  background-color: #1B9C85;
+}
+
+.sociallink_container{
+  width: min-content;
+  margin-inline: auto;
+  background-color: $app-background-dark;
+  display: flex;
+  border-radius: 25px;
+  position: relative;
+
+  &::after{
+    content: '';
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background-color: $app-color-10;
+    z-index: 1;
+    border-radius: 25px;
+    left: var(--before-left, 0);
+    transition: all .3s ease-in;
+  }
+}
+
+
+.socialLinks{
+  width: 200px;
+  text-align: center;
+  padding: 10px 0;
+  color: $color-primary;
+  background-color: transparent ;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.component_container{
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 15px 35px;
+}
+
+.resume_components{
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: $app-background-dark;
+  padding: 15px 0;
+  border-radius: 15px;
+}
+
+.btn_container{
+  padding: 0 35px;
+}
+
+.cancel_btn{
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  color: $color-primary;
+  background-color: #F27575;
+}
