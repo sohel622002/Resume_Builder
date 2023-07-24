@@ -1,7 +1,21 @@
 import React, { useState } from "react";
 
 import "./Skills.scss";
-import Skill from "./Skill";
+
+function Skill({ skill, addSkill }) {
+  const [value, setValue] = useState(skill);
+  return (
+    <div
+      className="skill"
+      contentEditable
+      suppressContentEditableWarning
+      onKeyDown={addSkill}
+      onChange={(event) => setValue(event.target.textContent)}
+    >
+      {value}
+    </div>
+  );
+}
 
 function Skills({ skills }) {
   const [skillset, setskillset] = useState([...skills]);

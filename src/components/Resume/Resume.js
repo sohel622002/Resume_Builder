@@ -5,6 +5,7 @@ import Personalprojects from "../Personal Projects/Personalprojects";
 import Skills from "../Skills/Skills";
 
 import { useSelector } from "react-redux";
+import Languages from "../Languages/Languages";
 
 const Resume = ({ linksUpdaterHandler }) => {
   const resumeStoreData = useSelector((state) => state.resume);
@@ -23,6 +24,29 @@ const Resume = ({ linksUpdaterHandler }) => {
       {/* Personal Links */}
 
       <div className="Personal_Links" onClick={linksUpdaterHandler}>
+        {Object.entries(resumeStoreData.contactDetail).map(([key, value]) => {
+          if (value && key !== "address" && key !== "country") {
+            return (
+              <IndividualLinks
+                info={
+                  ["github", "linkedin", "instagram", "facebook"].includes(key)
+                    ? "brands"
+                    : "solid"
+                }
+                type={key}
+                link={
+                  ["github", "linkedin", "instagram", "facebook"].includes(key)
+                    ? value.replace("https://www.", "")
+                    : value
+                }
+                key={key}
+              />
+            );
+          }
+        })}
+      </div>
+
+      {/* <div className="Personal_Links" onClick={linksUpdaterHandler}>
         {Object.entries(resumeStoreData.contactDetail).map(
           ([key, value]) =>
             value &&
@@ -41,7 +65,7 @@ const Resume = ({ linksUpdaterHandler }) => {
               <IndividualLinks info="solid" type={key} link={value} key={key} />
             ))
         )}
-      </div>
+      </div> */}
 
       <div className="main_section">
         <div>
@@ -52,6 +76,7 @@ const Resume = ({ linksUpdaterHandler }) => {
         </div>
         <div>
           <Skills skills={resumeStoreData.skills} />
+          <Languages />
         </div>
       </div>
     </div>
