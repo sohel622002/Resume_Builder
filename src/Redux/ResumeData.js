@@ -1,4 +1,4 @@
-export default {
+export const resumeData = {
   resumerName: "sohel Shaikh",
   rollForApply: "FrontEnd Devloper",
   tageLine: "Self Taught Devloper",

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-const EditableDiv = ({ classes, fieldvalue, getDatatoEducation }) => {
-  const [text, setText] = useState(fieldvalue);
+const EditableDiv = ({ classes, fieldvalue, getDatatoEducation }) => { 
+  // const [text, setText] = useState(fieldvalue);
 
   return (
     <div
@@ -10,7 +10,7 @@ const EditableDiv = ({ classes, fieldvalue, getDatatoEducation }) => {
       contentEditable
       suppressContentEditableWarning
     >
-      {text}
+      {fieldvalue}
     </div>
   );
 };

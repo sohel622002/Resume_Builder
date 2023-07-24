@@ -10,11 +10,11 @@ function Personalprojects({ personalprojects }) {
   const editPersonalProjectHandler = (e, index) => {
     const personalprojectdiv =
       document.querySelectorAll(".personal_project");
-    Array.from(personalprojectdiv).map((projectDiv) =>
+    Array.from(personalprojectdiv).forEach((projectDiv) =>
     projectDiv.classList.remove("openedit_personal_project")
     );
     const sidefunction = document.querySelectorAll(".project_side_function");
-    Array.from(sidefunction).map((sidefunc)=> sidefunc.style.display = 'none')
+    Array.from(sidefunction).forEach((sidefunc)=> sidefunc.style.display = 'none')
 
     personalprojectdiv[index].classList.add("openedit_personal_project");
     sidefunction[index].style.display = "flex";
@@ -34,13 +34,13 @@ function Personalprojects({ personalprojects }) {
     const handleOutsideClick = (event) => {
       if (ProjectRef.current && !ProjectRef.current.contains(event.target)) {
         const projectDivs = document.querySelectorAll(".personal_project");
-        Array.from(projectDivs).map((projectDiv) =>
+        Array.from(projectDivs).forEach((projectDiv) =>
           projectDiv.classList.remove("openedit_personal_project")
         );
         const sidefunction = document.querySelectorAll(
           ".project_side_function"
         );
-        Array.from(sidefunction).map(
+        Array.from(sidefunction).forEach(
           (projectDiv) => (projectDiv.style.display = "none")
         );
       }

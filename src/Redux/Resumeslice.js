@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import resumeData from "./ResumeData";
+import { resumeData } from "./ResumeData";
 
 export const resumeSlice = createSlice({
   name: "Resume",
@@ -22,16 +22,22 @@ export const resumeSlice = createSlice({
       state.contactDetail.address = action.payload.address;
       state.contactDetail.country = action.payload.country;
     },
-    changeEducationDetail : (state, action) => {
+    changeEducationDetail: (state, action) => {
       state.Education = action.payload;
     },
-    changeProjectDetail : (state, action) => {
+    changeProjectDetail: (state, action) => {
       state.PersonalProjects = action.payload;
-    }
+    },
   },
 });
 
-export const { changeName, changeRole, changeTagline, changeContactDetail, changeEducationDetail, changeProjectDetail } =
-  resumeSlice.actions;
+export const {
+  changeName,
+  changeRole,
+  changeTagline,
+  changeContactDetail,
+  changeEducationDetail,
+  changeProjectDetail,
+} = resumeSlice.actions;
 
 export default resumeSlice.reducer;

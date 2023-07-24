@@ -79,7 +79,7 @@ function Education() {
         );
         const educations = Array.from(document.querySelectorAll(".education"));
         const educationDetail = [];
-        educations.map((education) => {
+        educations.forEach((education) => {
           educationDetail.push({
             degreeName: education.querySelector(".degreeName").innerText,
             collageName: education.querySelector(".collageName").innerText,
@@ -98,12 +98,12 @@ function Education() {
         document.querySelectorAll(".personal_project")
       );
       const projectDetail = [];
-      projects.map((project) => {
+      projects.forEach((project) => {
         const projectDetailList = [];
         const projectDetailListDivs = Array.from(
           project.querySelectorAll(".project_Detail")
         );
-        projectDetailListDivs.map((list) => {
+        projectDetailListDivs.forEach((list) => {
           projectDetailList.push(list.innerText);
         });
         projectDetail.push({
@@ -120,7 +120,7 @@ function Education() {
     return () => {
       document.removeEventListener("click", handleOutsideClick);
     };
-  }, [educationDetail]);
+  }, [educationDetail, dispatch]);
 
   return (
     <div className="education_Container" ref={educationRef}>
