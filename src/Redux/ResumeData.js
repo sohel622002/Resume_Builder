@@ -30,10 +30,12 @@ export const resumeData = {
     {
       lang: "English",
       Proficiency: "Professional working Proficiency",
+      level : 3
     },
     {
       lang: "Hindi",
       Proficiency: "Full Professional Proficiency",
+      level : 4
     },
   ],
   PersonalProjects: [
@@ -59,4 +61,5 @@ export const resumeData = {
       description: "",
     },
   ],
+  intrest : ["Chess", "Gaming"]
 };

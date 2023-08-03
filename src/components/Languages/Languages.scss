@@ -7,14 +7,21 @@
 .language{
     font-size: 20px;
     font-weight: 300;
-    padding-bottom: 7px;
+    padding: 7px 0;
+    outline: none;
+    border: none;
 }
 
 .language-prof{
+    cursor: pointer;
     font-size: 15px !important;
     font-weight: 300;
     font-style: italic;
     color: $app-color-10;
+}
+
+.language-prof:hover{
+    color: rgba($app-color-10, .7);
 }
 
 .all-languages{
@@ -26,5 +33,30 @@
 }
 
 .language-container{
+    position: relative;
     width: 150px;
+}
+
+.selectedProf{
+    color: $app-color-10;
+}
+
+.language-prof-box{
+    position: absolute;
+    height: auto;
+    background-color: $app-background-color;
+    bottom: 0;
+    left: -30px;
+    display: flex;
+    border-radius: 5px;
+
+    > span{
+        display: block;
+        padding: 7px 6px;
+        cursor: pointer;
+        
+        &:hover{
+            color: $app-color-10;
+        }
+    }
 }

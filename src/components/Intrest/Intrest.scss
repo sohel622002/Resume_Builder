@@ -1,0 +1,40 @@
+@import '../../scss/variables.scss';
+
+.intrest{
+    min-width: 65px;
+    width: max-content;
+    outline: 2px solid grey;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:empty::before{
+        content: "Intrest";
+        color: rgba(0, 0, 0, 0.55);
+    }
+}
+
+.Intrest-container{
+    padding: 10px 0;
+    display: flex;
+    gap: 10px;
+}
+
+.intrest-add-function{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    & span > i{
+        font-size: 25px;
+        color: $app-color-10;
+        cursor: pointer;
+    }
+
+    .line{
+        width: 100%;
+        display: inline-block;
+        height: 3px;
+        border-top: 3px dashed $app-color-10;
+    }
+}
