@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Languages.scss";
 import { useSelector } from "react-redux";
 
 //Language Prof Box >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-function LanguageProf({ lang, level, profLevel, clickListner}) {
+function LanguageProf({ lang, level, profLevel, clickListner }) {
   return (
     <span
       language={lang}
@@ -41,9 +41,22 @@ function SingleLanguage({ lang, prof, levelValue }) {
     let target = e.target;
     let language = target.getAttribute("language");
     let level = target.getAttribute("profvalue");
-    setLevel(level)
+    setLevel(level);
     setLanguageProf(language);
     setOpenLangBox(false);
+  }
+
+  function openLangBoxHandler() {
+    setOpenLangBox(true);
+
+    setTimeout(() => window.addEventListener("click", opneLangHandler));
+    function opneLangHandler(e) {
+      let targetElement = document.querySelector(".language-prof-box");
+      if (!targetElement?.contains(e.target)) {
+        setOpenLangBox(false);
+        window.removeEventListener("click", opneLangHandler);
+      }
+    }
   }
 
   return (
@@ -57,7 +70,7 @@ function SingleLanguage({ lang, prof, levelValue }) {
       >
         {language}
       </h4>
-      <h4 className="language-prof" onClick={() => setOpenLangBox(true)}>
+      <h4 className="language-prof" onClick={openLangBoxHandler}>
         {languageProf}
       </h4>
       {openLangBox ? (

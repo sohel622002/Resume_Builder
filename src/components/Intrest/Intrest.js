@@ -11,10 +11,24 @@ function SingleIntrest({ intrest, setAddIntrest }) {
       setName(e.target.value);
     }
   }
+
+  function openIntrestAddingFunc(){
+    setAddIntrest(true)
+    window.addEventListener("click", function hideIntrestButton(e) {
+      let targetElement = this.document.querySelector(".Intrest-container");
+      if (targetElement && !targetElement.contains(e.target)) {
+        setAddIntrest(false);
+        setTimeout(() => {
+          window.removeEventListener("click", hideIntrestButton)
+        }, 1000);
+      }
+    });
+  }
+  
   return (
     <div
       className="intrest"
-      onFocus={() => setAddIntrest(true)}
+      onFocus={openIntrestAddingFunc}
       onBlur={updateName}
       contentEditable
       suppressContentEditableWarning
@@ -28,15 +42,11 @@ function SingleIntrest({ intrest, setAddIntrest }) {
 function Intrest() {
   const intrests = useSelector((state) => state.resume.intrest);
   const [intrestsMap, setIntrestsMap] = useState([...intrests]);
-  //   const intrestsMap = [...intrests];
   const [addIntrest, setAddIntrest] = useState(false);
 
   function addIntrestListner() {
     setIntrestsMap([...intrestsMap, ""]);
-    console.log(intrestsMap);
-    setTimeout(() => {
-      setAddIntrest(false);
-    }, 300);
+    setAddIntrest(false);
   }
 
   return (
